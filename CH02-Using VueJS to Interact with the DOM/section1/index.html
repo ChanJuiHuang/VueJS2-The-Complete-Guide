@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/vue@2.3.2"></script>
+</head>
+<body>
+    <!--
+        <div id="app">...</div>都是template
+    -->
+    <div id="app">
+        <h1 v-once>{{ title }}</h1>
+        <!--
+            v-bind可以用來綁定html attribute
+            不用href="{{link}}"是因為attribute不會解析{{}}，
+            會造成網址變成{{link}}
+        -->        
+        <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+        <hr>
+        <p v-html="finishedLink"></p>
+    </div>
+</body>
+<script src="./app.js"></script>
+</html>
