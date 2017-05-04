@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Class Binding</h1>
+        <!--利用object控制background-color-->
+        <div class="demo" 
+            @click="attachRed = !attachRed"
+            :class="divClasses" 
+        ></div>
+        <div class="demo" :class="{red: attachRed}"></div>
+        <div class="demo" :class="[color, {red: attachRed}]"></div>
+        <hr>
+        <h1>Style Binding</h1>
+        <div class="demo" :style="{'background-color': color}"></div>
+        <div class="demo" :style="myStyle"></div>
+        <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+        <hr>
+        <input type="text" v-model="color">
+        <input type="text" v-model="width">
+    </div>
+</body>
+<script src="./app.js"></script>
+</html>
