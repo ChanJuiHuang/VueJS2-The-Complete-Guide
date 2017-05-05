@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Slayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <div class="healthbar">
+                <div
+                    class="healthbar text-center"
+                    :style="'background-color: green; margin: 0; color: white;' +
+                    (healthWidth)(health.player)">
+                    {{ health.player }}
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">MONSTER</h1>
+            <div class="healthbar">
+                <!--下面的:style atrribute為老師講解之寫法-->
+                <div
+                    class="healthbar text-center"
+                    style="background-color: green; margin: 0; color: white;" 
+                    :style="{width: `${health.monster}%`}">
+                    {{ health.monster }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row controls" v-show="!isStart">
+        <div class="small-12 columns">
+            <button id="start-game" @click="startGame">START NEW GAME</button>
+        </div>
+    </section>
+    <section class="row controls" v-show="isStart">
+        <div class="small-12 columns">
+            <button id="attack" @click="attack">ATTACK</button>
+            <button id="special-attack" @click="attack('special')">SPECIAL ATTACK</button>
+            <button id="heal" @click="heal">HEAL</button>
+            <button id="give-up" @click="giveUp">GIVE UP</button>
+        </div>
+    </section>
+    <section class="row log">
+        <div class="small-12 columns">
+            <ul>
+                <li
+                    v-for="log in logs"
+                    :class="`${log[0] === 'hp' ? 'player' : log[0]}-turn`"
+                    :key="log[0]"
+                >{{ showLogs(log) }}</li>
+            </ul>
+        </div>
+    </section>
+</div>
+</body>
+<script src="./app.js"></script>
+</html>
