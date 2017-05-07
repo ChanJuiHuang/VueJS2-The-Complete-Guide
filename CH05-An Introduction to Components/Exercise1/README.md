@@ -1,4 +1,4 @@
-# section3
+# Exercise1
 
 > A Vue.js project
 
