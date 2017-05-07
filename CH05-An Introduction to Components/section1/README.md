@@ -1,0 +1,2 @@
+- global component
+- non-data sharing & data sharing
