@@ -55,8 +55,8 @@
                 <h1>Transition-Group</h1>
                 <button class="btn btn-primary" @click="addItem">Add Item</button>
                 <br><br>
-                <ul class="list-group">
-                    <transition-group name="slide">
+                <!--<ul class="list-group">-->
+                    <transition-group tag="ul" class="list-group" name="slide">
                         <li
                             class="list-group-item"
                             style="cursor: pointer"
@@ -64,7 +64,7 @@
                             :key="number"
                             @click="removeItem(index)">{{ number }}</li>
                     </transition-group>
-                </ul>
+                <!--</ul>-->
             </div>
         </div>
     </div>
