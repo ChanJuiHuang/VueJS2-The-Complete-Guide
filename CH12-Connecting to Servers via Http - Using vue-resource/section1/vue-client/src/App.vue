@@ -43,7 +43,7 @@
             }
         },
         methods: {
-            submit(){
+            async submit(){
                 // this.$http.post('data', this.user)
                 //     .then(res => console.log(res))
                 //     .catch(err => console.log(err));
@@ -51,8 +51,9 @@
                 // this.resource.save({}, this.user)
                 //     .then(res => console.log(res));
 
-                this.resource.saveAlt(this.user)
-                    .then(res => console.log(res));
+                const res = await this.resource.saveAlt(this.user);
+                console.log(res);
+                    // .then(res => console.log(res));
             },
             fetchData(){
                 // this.$http.get('')                
